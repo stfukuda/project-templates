@@ -3,14 +3,16 @@
 install:
 	@git init
 	@git commit --allow-empty -m "Initial commit"
-	@git checkout -b dev
 	@git add .
 	@git commit -m "Add template folder"
+	@git checkout -b dev
 	@poetry install
+	@git add .
+	@git commit -m "Add poetry.lock"
 	@poetry run pre-commit install
 	@poetry run pre-commit autoupdate
 	@git add .
-	@git commit -m "Add poetry.lock file" -m "Generate virtual enviroment."
+	@git commit -m "Update hooks revision or tag"
 
 update:
 	@poetry update
