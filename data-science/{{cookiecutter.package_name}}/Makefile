@@ -1,25 +1,22 @@
-.PHONY: clean, install, update, init, format, lint, test, html, build, publish-test, publish, lab, optuna, mlflow, tensorboard
-
-clean:
-	-@rm -r .tox
-	-@rm -r .venv
-	-@rm -r dist
-	-@rm -r htmlcov
-	-@rm .coverage
-	-@poetry run pre-commit clean
+.PHONY: install, update, format, lint, test, html, build, publish-test, publish, clean, lab, optuna, mlflow, tensorboard
 
 install:
+	@git init
+	@git commit --allow-empty -m "Initial commit"
+	@git add .
+	@git commit -m "Add template folder"
+	@git checkout -b dev
 	@poetry install
-	@poetry run pre-commit install -f
+	@git add .
+	@git commit -m "Add poetry.lock"
+	@poetry run pre-commit install
+	@poetry run pre-commit autoupdate
+	@git add .
+	@git commit -m "Update hooks revision or tag"
 
 update:
 	@poetry update
 	@poetry run pre-commit autoupdate
-
-init:
-	-@git init
-	-@git add . --all -first
-	-@git commit -m "first commit"
 
 format:
 	-@poetry run isort ./src ./tests
@@ -43,6 +40,14 @@ publish-test:
 
 publish:
 	@poetry publish
+
+clean:
+	-@poetry run pre-commit clean
+	-@rm -rf .venv
+	-@rm -rf .tox
+	-@rm -rf dist
+	-@rm -rf htmlcov
+	-@rm -rf .coverage
 
 lab:
 	@poetry run jupyter lab
