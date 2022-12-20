@@ -59,4 +59,4 @@ If the test passes, send the pull request according to the format.
 
 ## License
 
-[{{cookiecutter.lisence}} License](LICENSE)
+[{{cookiecutter.license}} License](LICENSE)
