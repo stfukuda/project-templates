@@ -5,13 +5,13 @@ install:
 	@git commit --allow-empty -m "Initial commit"
 	@git add .
 	@git commit -m "Add template folder"
-	@git checkout -b dev
-	@poetry install
-	@git add .
+	@sudo poetry install
+	@git add poetry.lock
 	@git commit -m "Add poetry.lock"
+	@git checkout -b develop
 	@poetry run pre-commit install
 	@poetry run pre-commit autoupdate
-	@git add .
+	@git add .pre-commit-config.yaml
 	@git commit -m "Update hooks revision or tag"
 
 update:
@@ -50,7 +50,7 @@ clean:
 	-@rm -rf .coverage
 
 lab:
-	@poetry run jupyter lab
+	@poetry run jupyter lab --ip="*" --poert=8888 --no-browser
 
 optuna:
 	@poetry run optuna-dashboard sqlite:///logs/optuna.db --host localhost
