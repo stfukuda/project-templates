@@ -74,26 +74,26 @@
 				],
 				"python.analysis.completeFunctionParens": true,
 				"python.analysis.extraPaths": [
-					"${workspaceFolder}/.venv/lib/python3.9/site-packages/",
+					"/usr/local/lib/python{{cookiecutter.python_version}}/site-packages/",
 					"${workspaceFolder}/src/"
 				],
 				"python.analysis.typeCheckingMode": "basic",
 				"python.autoComplete.extraPaths": [
-					"${workspaceFolder}/.venv/lib/python3.9/site-packages/",
+					"/usr/local/lib/python{{cookiecutter.python_version}}/site-packages/",
 					"${workspaceFolder}/src/"
 				],
 				"python.envFile": "${workspaceFolder}/.env",
-				"python.formatting.blackPath": "${workspaceFolder}/.venv/bin/black",
+				"python.formatting.blackPath": "/usr/local/bin/black",
 				"python.formatting.provider": "black",
 				"python.linting.banditArgs": [
 					"-c",
 					"pyproject.toml"
 				],
 				"python.linting.banditEnabled": true,
-				"python.linting.banditPath": "${workspaceFolder}/.venv/bin/bandit",
+				"python.linting.banditPath": "/usr/local/bin/bandit",
 				"python.linting.enabled": true,
 				"python.linting.flake8Enabled": true,
-				"python.linting.flake8Path": "${workspaceFolder}/.venv/bin/flake8",
+				"python.linting.flake8Path": "/usr/local/bin/flake8",
 				"python.terminal.activateEnvironment": false,
 				"python.testing.pytestArgs": [
 					"tests"
