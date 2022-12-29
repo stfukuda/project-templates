@@ -5,7 +5,7 @@ install:
 	@git commit --allow-empty -m "Initial commit"
 	@git add .
 	@git commit -m "Add template folder"
-	@sudo poetry install
+	@poetry install
 	@git add poetry.lock
 	@git commit -m "Add poetry.lock"
 	@git checkout -b develop
@@ -15,7 +15,7 @@ install:
 	@git commit -m "Update hooks revision or tag"
 
 update:
-	@sudo poetry update
+	@poetry update
 	@poetry run pre-commit autoupdate
 
 format:

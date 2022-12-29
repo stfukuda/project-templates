@@ -106,6 +106,5 @@
 			}
 		}
 	},
-	"remoteUser": "vscode",
 	"shutdownAction": "stopContainer"
 }
