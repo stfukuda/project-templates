@@ -1,6 +1,6 @@
 ARG VARIANT=3.9
 
-FROM python:$VARIANT
+FROM python:${VARIANT}
 
 RUN apt update && \
     apt upgrade -y && \
