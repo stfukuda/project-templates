@@ -26,7 +26,7 @@ Development requires:
 
 - Python (>={{cookiecutter.python_version}})
 - Poetry
-- Git (Option)
+- Git
 - Make (Option)
 
 ### Source code
