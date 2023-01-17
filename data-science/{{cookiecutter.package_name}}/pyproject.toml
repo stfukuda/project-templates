@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "{{cookiecutter.package_name}}"
-version = "0.1.0"
+version = "0.0.0"
 description = "{{cookiecutter.description}}"
 authors = ["{{cookiecutter.author}}"]
 license = "{{cookiecutter.license}}"
@@ -8,80 +8,69 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^{{cookiecutter.python_version}}"
-
-# Computation, machine learning, deep learning
-numpy = "*"
-scipy = "*"
-# simpy = "*"
-pandas = "*"
-scikit-learn = "*"
-# tslearn = "*"
-# statsmodels = "*"
-# xgboost = "*"
-# lightgbm = "*"
-# catboost = "*"
-# tensorflow = "2.9.1"
-# tensorflow-probability = "0.17.0"
-
-# Visualization, image processing
-matplotlib = "*"
-seaborn = "*"
-# plotly = "*"
-# Pillow = "*"
-# opencv-python = "*"
-# graphviz = "*"
-
-# Data profiling
-# pandas_profiling = "*"
-
-# JIT compilation, parallel processing
-numba = "*"
-joblib = "*"
-# dask = {extras = ["complete"], version = "*"}
-# dask-ml = {extras = ["complete"], version = "*"}
-
-# Experiment management
 mlflow = "*"
-
-# Hyper parameter management.
 hydra-core = "*"
-
-# Feature enginerring, feature selection, optimization
-featuretools = "*"
-# featuretools = {extras = ["complete"], version = "*"}
-Boruta = "*"
-optuna = "*"
-
-# Utilities
-tqdm = "*"
 python-dotenv = "*"
-# tensorboard-plugin-profile = "*"
-optuna-dashboard = "*"
 
+[tool.poetry.group.dev]
+optional = true
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
+
+[tool.poetry.group.cqa]
+optional = true
+
+[tool.poetry.group.cqa.dependencies]
 isort = "*"
 black = "*"
 flake8 = "*"
 bandit = {extras = ["toml"], version = "*"}
-# pre-commit = "*"
+pre-commit = "*"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
 pytest = "*"
-tox = "*"
+pytest-cov = "*"
+pytest-xdist = "*"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
 sphinx = "*"
 sphinx_rtd_theme = "*"
 
+[tool.poetry.group.ide]
+optional = true
+
+[tool.poetry.group.ide.dependencies]
 jupyterlab = "*"
 ipywidgets = "*"
 jupyterlab_flake8 = "*"
 jupyterlab_code_formatter = "*"
 
+[tool.poetry-dynamic-versioning]
+enable = true
+
 [tool.isort]
 profile = "black"
 lines_after_imports = 2
+
+[tool.black]
+{% if cookiecutter.python_version == 3.8 %}
+target-version = ["py38"]
+{% elif cookiecutter.python_version == 3.9 %}
+target-version = ["py39"]
+{% elif cookiecutter.python_version == 3.10 %}
+target-version = ["py310"]
+{% elif cookiecutter.python_version == 3.11 %}
+target-version = ["py311"]
 
 [tool.bandit]
 skips = ["B101", "B601"]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
