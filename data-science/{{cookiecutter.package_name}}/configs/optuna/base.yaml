@@ -1,0 +1,100 @@
+# @package _group_
+study:
+  storage: sqlite:///${hydra:runtime.cwd}/logs/optuna.db
+  study_name: sample
+  direction: minimize
+  load_if_exists: true
+  directions: null
+optimize:
+  n_trials: 100
+  timeout: null
+  n_jobs: 1
+  gc_after_trial: true
+  show_progress_bar: false
+sampler:
+  __target__: nsga2
+  grid:
+    # See https://optuna.readthedocs.io/en/stable/reference/generated/optuna.samplers.GridSampler.html for details.
+    search_space: {}
+  random:
+    # See https://optuna.readthedocs.io/en/stable/reference/generated/optuna.samplers.RandomSampler.html for details.
+    seed: null
+  tpe:
+    # See https://optuna.readthedocs.io/en/stable/reference/generated/optuna.samplers.TPESampler.html for details.
+    consider_prior: true
+    previous_weight: 1.0
+    consider_magic_clip: true
+    consider_endpoints: false
+    n_startup_trials: 10
+    n_ei_candidates: 24
+    seed: null
+    multivariate: false
+    warn_independent_sampling: true
+    # gamma and weights should be specified in the code.
+  cmaes:
+    # See https://optuna.readthedocs.io/en/stable/reference/generated/optuna.samplers.CmaEsSampler.html for details.
+    x0: null
+    sigma0: null
+    n_startup_trials: 1
+    independent_sampler: null
+    warn_independent_sampling: true
+    seed: null
+    consider_pruned_trials: false
+    restart_strategy: null
+    inc_popsize: 2
+    use_separable_cma: false
+    source_trials: null
+  partialfixed:
+    # See https://optuna.readthedocs.io/en/stable/reference/generated/optuna.samplers.GridSampler.html for details.
+    fixed_pa​​rams: {}
+    base_sampler: tpe
+  nsga2:
+    # See https://optuna.readthedocs.io/en/stable/reference/generated/optuna.samplers.NSGAIISampler.html for details.
+    population_size: 50
+    mutation_prob: null
+    crossover_prob: 0.9
+    swapping_prob: 0.5
+    seed: null
+    # constraints_func should be specified in the code.
+    constraints_func: null
+  motpe:
+    # See https://optuna.readthedocs.io/en/stable/reference/generated/optuna.samplers.MOTPESampler.html for details.
+    consider_prior: true
+    prior_weight: 1.0
+    consider_magic_clip: true
+    consider_endpoints: true
+    n_startup_trials: 10
+    n_ehvi_candidates: 24
+    seed: null
+    # gamma and weights should be specified in the code.
+pruner:
+  __target__: median
+  median:
+    # See https://optuna.readthedocs.io/en/stable/reference/generated/optuna.pruners.MedianPruner.html for details.
+    n_startup_trials: 5
+    n_warmup_steps: 0
+    interval_steps: 1
+  percentile:
+    # See https://optuna.readthedocs.io/en/stable/reference/generated/optuna.pruners.PercentilePruner.html for details.
+    percentile: 50.0
+    n_startup_trials: 5
+    n_warmup_steps: 0
+    interval_steps: 1
+  successivehalving:
+    # See https://optuna.readthedocs.io/en/stable/reference/generated/optuna.pruners.SuccessiveHalvingPruner.html for details.
+    min_resource: auto
+    reduction_factor: 4
+    min_early_stopping_rate: 0
+    bootstrap_count: 0
+  hyperband:
+    # See https://optuna.readthedocs.io/en/stable/reference/generated/optuna.pruners.HyperbandPruner.html for details.
+    min_resource: 1
+    max_resource: auto
+    reduction_factor: 3
+    bootstrap_count: 0
+  threshold:
+    # See https://optuna.readthedocs.io/en/stable/reference/generated/optuna.pruners.ThresholdPruner.html for details.
+    lower: null
+    upper: null
+    n_warmup_steps: 0
+    interval_steps: 1
