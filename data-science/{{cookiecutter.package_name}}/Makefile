@@ -1,62 +1,57 @@
-.PHONY: install, update, format, lint, test, html, build, publish-test, publish, clean, lab, optuna, mlflow, tensorboard
+.PHONY: setup, install, update, format, lint, test, html, build, clean, lab, optuna, mlflow, tensorboard
 
-install:
+setup:
 	@git init
 	@git commit --allow-empty -m "Initial commit"
-	@git add .
-	@git commit -m "Add template folder"
-	@poetry install
-	@git add poetry.lock
-	@git commit -m "Add poetry.lock"
 	@git checkout -b develop
-	@poetry run pre-commit install
-	@poetry run pre-commit autoupdate
+	@git checkout -b setup
+	@git add .
+	@git commit -m "chore: 🤖 add template folder"
+	@poetry install --with dev,cqa,test,docs
+	@git add poetry.lock
+	@git commit -m "chore: 🤖 add poetry.lock"
+	@pre-commit install
+	@pre-commit autoupdate
 	@git add .pre-commit-config.yaml
-	@git commit -m "Update hooks revision or tag"
+	@git commit -m "chore: 🤖 update pre-commit hooks revision or tag"
+	@git checkout develop
+	@git merge setup
+	@git branch -d setup
+
+install:
+	@poetry install --with dev,cqa,test,docs
+	@pre-commit install
 
 update:
 	@poetry update
-	@poetry run pre-commit autoupdate
+	@pre-commit autoupdate
 
 format:
-	-@poetry run isort ./src ./tests
-	-@poetry run black ./src ./tests
+	-@isort ./src ./tests
+	-@black ./src ./tests
 
 lint:
-	-@poetry run flake8 ./src ./tests --color auto
-	-@poetry run bandit -r ./src ./tests
+	-@flake8 ./src ./tests --color auto
+	-@bandit -r ./src ./tests
 
 test:
-	@poetry run tox
+	@pytest --cov=src --cov-report=term-missing --cov-report=html -n 4
 
 html:
-	@poetry run sphinx-build -b html ./docs/source ./docs
+	@sphinx-build -b html ./docs/source ./docs
 
 build:
+	@git checkout main
 	@poetry build
 
-publish-test:
-	@poetry publish -r test-pypi
-
-publish:
-	@poetry publish
-
-clean:
-	-@poetry run pre-commit clean
-	-@rm -rf .venv
-	-@rm -rf .tox
-	-@rm -rf dist
-	-@rm -rf htmlcov
-	-@rm -rf .coverage
-
 lab:
-	@poetry run jupyter lab --ip="*" --poert=8888 --no-browser
+	@jupyter lab --allow-root --ip="*" --poert=8888 --no-browser
 
 optuna:
-	@poetry run optuna-dashboard sqlite:///logs/optuna.db --host localhost
+	@optuna-dashboard sqlite:///logs/optuna.db --host localhost
 
 mlflow:
-	@poetry run mlflow ui --backend-store-uri sqlite:///logs/mlflow.db --default-artifact-root models
+	@mlflow ui --backend-store-uri sqlite:///logs/mlflow.db --default-artifact-root models
 
 tensorboard:
-	@poetry run tensorboard --logdir ./logs
+	@tensorboard --logdir ./logs
