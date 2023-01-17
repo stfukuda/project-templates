@@ -1,21 +1,21 @@
 {
-	"name": "Python",
-	"build": {
-		"context": "..",
-		"dockerfile": "Dockerfile",
-		"args": {
-			"VARIANT": "{{cookiecutter.python_version}}"
-		}
-	},
+	"name": "{{cookiecutter.package_name}}",
+	"image": "python:{{cookiecutter.python_version}}",
 	"workspaceFolder": "/workspace",
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
 	"forwardPorts": [
 		8888
 	],
+	"remoteEnv": {
+		"PATH": "/root/.local/bin:${containerEnv:PATH}",
+		"LANG": "en_US.UTF-8"
+	},
 	"runArgs": [
 		"--gpus",
 		"all",
-		"--shm-size=2g"
+		"--shm-size=2g",
+		"--name",
+		"{{cookiecutter.package_name}}"
 	],
 	"customizations": {
 		"vscode": {
