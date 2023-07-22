@@ -15,13 +15,7 @@ python = "^{{cookiecutter.python_version}}"
 
 [tool.poetry.group.dev]
 optional = true
-
 [tool.poetry.group.dev.dependencies]
-
-[tool.poetry.group.cqa]
-optional = true
-
-[tool.poetry.group.cqa.dependencies]
 isort = "*"
 black = "*"
 flake8 = "*"
@@ -30,7 +24,6 @@ pre-commit = "*"
 
 [tool.poetry.group.test]
 optional = true
-
 [tool.poetry.group.test.dependencies]
 pytest = "*"
 pytest-cov = "*"
@@ -38,14 +31,12 @@ pytest-xdist = "*"
 
 [tool.poetry.group.docs]
 optional = true
-
 [tool.poetry.group.docs.dependencies]
 sphinx = "*"
 sphinx_rtd_theme = "*"
 
 [tool.poetry-dynamic-versioning]
 enable = true
-
 [tool.isort]
 profile = "black"
 lines_after_imports = 2
