@@ -13,7 +13,7 @@ permissions: {}
 
 jobs:
   setup-and-test:
-    name: Build and Test (Python ${{ matrix.python-version }})
+    name: Build and Test (Python ${{"{{"}} matrix.python-version {{"}}"}})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -22,10 +22,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Python ${{ matrix.python-version }}
+      - name: Setup Python ${{"{{"}} matrix.python-version {{"}}"}})
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{"{{"}} matrix.python-version {{"}}"}})
       - name: Setup Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
@@ -41,7 +41,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: Test Results (Python ${{ matrix.python-version }})
+          name: Test Results (Python ${{"{{"}} matrix.python-version {{"}}"}}))
           path: results/*.xml
   publish-test-results:
     name: Publish Test Results
