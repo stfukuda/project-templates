@@ -18,10 +18,10 @@ jobs:
       - name: Get Tags
         run: |
           git fetch --prune --unshallow --tags
-      - name: Setup Python 3.8
+      - name: Setup Python {{cookiecutter.python_version}}
         uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: "{{cookiecutter.python_version}}"
       - name: Setup Poetry
         run: |
           python3 -m pip install -U pip setuptools wheel
