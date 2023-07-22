@@ -8,6 +8,7 @@
 
 - data-science
 - python-package
+- streamlit
 
 ## Usage
 
