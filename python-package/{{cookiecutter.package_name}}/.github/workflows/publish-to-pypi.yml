@@ -33,4 +33,4 @@ jobs:
           poetry install --no-root
       - name: Build
         run: |
-          poetry publish --build -u __token__ -p ${{ secrets.PYPI_TOKEN }}
+          poetry publish --build -u __token__ -p ${{"{{"}} secrets.PYPI_TOKEN {{"}}"}}
