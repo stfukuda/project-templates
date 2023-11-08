@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "njpwerner.autodocstring",
+        "ms-python.black-formatter",
+        "tamasfe.even-better-toml",
+        "ms-python.flake8",
+        "ms-python.isort",
+        "ms-toolsai.jupyter",
+        "yzhang.markdown-all-in-one",
+        "goessner.mdmath",
+        "DavidAnson.vscode-markdownlint",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "redhat.vscode-yaml"
+    ]
+}
