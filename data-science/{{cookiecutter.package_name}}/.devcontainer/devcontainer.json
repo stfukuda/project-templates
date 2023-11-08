@@ -11,9 +11,11 @@
     "LANG": "en_US.UTF-8"
   },
   "runArgs": [
+    {% if cookiecutter.use_gpu == 'true' %}
     "--gpus",
     "all",
     "--shm-size=2g",
+    {% endif %}
     "--name",
     "{{cookiecutter.package_name}}"
   ],
@@ -61,11 +63,21 @@
             88
           ]
         },
+        "[sql]": {
+          "editor.indentSize": 2
+        },
         "[toml]": {
           "editor.defaultFormatter": "tamasfe.even-better-toml"
         },
         "autoDocstring.docstringFormat": "numpy",
         "autoDocstring.startOnNewLine": true,
+        "black-formatter.args": [
+          "-c",
+          "pyproject.toml"
+        ],
+        "black-formatter.path": [
+          "/usr/local/bin/black"
+        ],
         "editor.codeActionsOnSave": {
           "source.fixAll": true,
           "source.organizeImports": true
@@ -74,7 +86,6 @@
         "editor.formatOnType": true,
         "editor.renderWhitespace": "all",
         "explorer.confirmDragAndDrop": false,
-        "extensions.autoUpdate": false,
         "files.autoSave": "afterDelay",
         "files.trimTrailingWhitespace": true,
         "flake8.importStrategy": "fromEnvironment",
@@ -101,17 +112,6 @@
           "${workspaceFolder}/src/"
         ],
         "python.envFile": "${workspaceFolder}/.env",
-        "python.formatting.blackPath": "/usr/local/bin/black",
-        "python.formatting.provider": "black",
-        "python.linting.banditArgs": [
-          "-c",
-          "pyproject.toml"
-        ],
-        "python.linting.banditEnabled": true,
-        "python.linting.banditPath": "/usr/local/bin/bandit",
-        "python.linting.enabled": true,
-        "python.linting.flake8Enabled": true,
-        "python.linting.flake8Path": "/usr/local/bin/flake8",
         "python.terminal.activateEnvironment": false,
         "python.testing.pytestArgs": [
           "tests"
