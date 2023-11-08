@@ -18,7 +18,7 @@ optional = true
 isort = "*"
 black = "*"
 flake8 = "*"
-bandit = {extras = ["toml"], version = "*"}
+bandit = { extras = ["toml"], version = "*" }
 pre-commit = "*"
 
 [tool.poetry.group.test]

@@ -2,5 +2,5 @@
 run:
   dir: ./logs/${hydra.job.name}
 sweep:
-    subdir: multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  subdir: multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
 output_subdir: run/${now:%Y-%m-%d}/${now:%H-%M-%S}
