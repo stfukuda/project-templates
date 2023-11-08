@@ -39,7 +39,11 @@
         "pyproject.toml"
     ],
     "black-formatter.path": [
+        {% if cookiecutter.os == 'windows' %}
+        "{workspaceFolder}/.venv/Scripts/black.exe"
+        {% else %}
         "/usr/local/bin/black"
+        {% endif %}
     ],
     "editor.codeActionsOnSave": {
         "source.fixAll": true,
@@ -53,25 +57,41 @@
     "files.trimTrailingWhitespace": true,
     "flake8.importStrategy": "fromEnvironment",
     "flake8.path": [
+        {% if cookiecutter.os == 'windows' %}
+        "{workspaceFolder}/.venv/Scripts/flake8.exe"
+        {% else %}
         "/usr/local/bin/flake8"
+        {% endif %}
     ],
     "git.confirmSync": false,
     "git.enableCommitSigning": true,
     "isort.check": true,
     "isort.importStrategy": "fromEnvironment",
     "isort.path": [
+        {% if cookiecutter.os == 'windows' %}
+        "{workspaceFolder}/.venv/Scripts/isort.exe"
+        {% else %}
         "/usr/local/bin/isort"
+        {% endif %}
     ],
     "jupyter.askForKernelRestart": false,
     "markdown.math.enabled": false,
     "python.analysis.completeFunctionParens": true,
     "python.analysis.extraPaths": [
+        {% if cookiecutter.os == 'windows' %}
+        "{workspaceFolder}/.venv/Lib/site-packages/",
+        {% else %}
         "/usr/local/lib/python{{cookiecutter.python_version}}/site-packages/",
+        {% endif %}
         "${workspaceFolder}/src/"
     ],
     "python.analysis.typeCheckingMode": "basic",
     "python.autoComplete.extraPaths": [
+        {% if cookiecutter.os == 'windows' %}
+        "{workspaceFolder}/.venv/Lib/site-packages/",
+        {% else %}
         "/usr/local/lib/python{{cookiecutter.python_version}}/site-packages/",
+        {% endif %}
         "${workspaceFolder}/src/"
     ],
     "python.envFile": "${workspaceFolder}/.env",

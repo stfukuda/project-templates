@@ -22,6 +22,14 @@
         "3.11",
         "3.12"
     ],
+    "os": [
+        "windows",
+        "linux"
+    ],
+    "use_docker": [
+        false,
+        true
+    ],
     "use_gpu": [
         false,
         true
