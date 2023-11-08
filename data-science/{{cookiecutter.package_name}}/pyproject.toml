@@ -50,7 +50,7 @@ profile = "black"
 lines_after_imports = 2
 
 [tool.black]
-target-versions = ["py38", "py39", "py310", "py311"]
+target-versions = ["py38", "py39", "py310", "py311", "py312"]
 
 [tool.bandit]
 skips = ["B101", "B601"]
