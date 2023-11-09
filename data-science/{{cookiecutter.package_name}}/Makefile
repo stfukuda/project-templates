@@ -46,12 +46,11 @@ update:
 
 .PHONY: format
 format:
-	-@isort ./src
-	-@black ./src
+	-@ruff ./src
 
 .PHONY: lint
 lint:
-	-@flake8 ./src --color auto
+	-@ruff check ./src --fix
 	-@bandit -c pyproject.toml -r ./src
 
 .PHONY: docs
@@ -71,8 +70,4 @@ lab:
 
 .PHONY: clean
 clean:
-	-@rm -rf .pytest_cache
-	-@rm -rf dist
-	-@rm -rf htmlcov
 	-@find ./ -name "__pycache__" -exec rm -rf {} \;
-	-@rm -rf .coverage

@@ -1,134 +1,94 @@
 {
-  "name": "{{ cookiecutter.package_name }}",
-  "image": "python:{{ cookiecutter.python_version }}",
-  "workspaceFolder": "/workspace",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-  "forwardPorts": [
-    8888
-  ],
-  "remoteEnv": {
-    "PATH": "/root/.local/bin:${containerEnv:PATH}",
-    "LANG": "en_US.UTF-8"
-  },
-  "runArgs": [
-    {%- if cookiecutter.use_gpu -%}
-    "--gpus",
-    "all",
-    "--shm-size=2g",
-    {%- endif -%}
-    "--name",
-    "{{ cookiecutter.package_name }}"
-  ],
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "njpwerner.autodocstring",
-        "ms-python.black-formatter",
-        "tamasfe.even-better-toml",
-        "ms-python.flake8",
-        "ms-python.isort",
-        "ms-toolsai.jupyter",
-        "yzhang.markdown-all-in-one",
-        "goessner.mdmath",
-        "DavidAnson.vscode-markdownlint",
-        "ms-python.vscode-pylance",
-        "ms-python.python",
-        "redhat.vscode-yaml"
-      ],
-      "settings": {
-        "[json]": {
-          "editor.indentSize": 2,
-          "editor.quickSuggestions": {
-            "strings": true
-          },
-          "editor.suggest.insertMode": "replace"
-        },
-        "[markdown]": {
-          "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
-          "editor.quickSuggestions": {
-            "comments": "off",
-            "other": "off",
-            "strings": "off"
-          },
-          "editor.unicodeHighlight.ambiguousCharacters": false,
-          "editor.unicodeHighlight.invisibleCharacters": false,
-          "editor.wordWrap": "on"
-        },
-        "[python]": {
-          "editor.defaultFormatter": "ms-python.black-formatter",
-          "editor.rulers": [
-            72,
-            76,
-            80,
-            88
-          ]
-        },
-        "[sql]": {
-          "editor.indentSize": 2
-        },
-        "[toml]": {
-          "editor.defaultFormatter": "tamasfe.even-better-toml"
-        },
-        "autoDocstring.docstringFormat": "numpy",
-        "autoDocstring.startOnNewLine": true,
-        "black-formatter.args": [
-          "-c",
-          "pyproject.toml"
-        ],
-        "black-formatter.path": [
-          "/usr/local/bin/black"
-        ],
-        "editor.codeActionsOnSave": {
-          "source.fixAll": true,
-          "source.organizeImports": true
-        },
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "editor.renderWhitespace": "all",
-        "explorer.confirmDragAndDrop": false,
-        "files.autoSave": "afterDelay",
-        "files.trimTrailingWhitespace": true,
-        "flake8.importStrategy": "fromEnvironment",
-        "flake8.path": [
-          "/usr/local/bin/flake8"
-        ],
-        "git.confirmSync": false,
-        "git.enableCommitSigning": true,
-        "isort.args": [
-          "--profile",
-          "black"
-        ],
-        "isort.check": true,
-        "isort.importStrategy": "fromEnvironment",
-        "isort.path": [
-          "/usr/local/bin/isort"
-        ],
-        "jupyter.askForKernelRestart": false,
-        "markdown.math.enabled": false,
-        "python.analysis.completeFunctionParens": true,
-        "python.analysis.extraPaths": [
-          "/usr/local/lib/python{{ cookiecutter.python_version }}/site-packages/",
-          "${workspaceFolder}/src/"
-        ],
-        "python.analysis.typeCheckingMode": "basic",
-        "python.autoComplete.extraPaths": [
-          "/usr/local/lib/python{{ cookiecutter.python_version }}/site-packages/",
-          "${workspaceFolder}/src/"
-        ],
-        "python.envFile": "${workspaceFolder}/.env",
-        "python.terminal.activateEnvironment": false,
-        "python.testing.pytestArgs": [
-          "tests"
-        ],
-        "python.testing.pytestEnabled": true,
-        "redhat.telemetry.enabled": true,
-        "vsicons.dontShowNewVersionMessage": true,
-        "workbench.colorTheme": "GitHub Dark",
-        "workbench.editorAssociations": {
-          "*.ipynb": "jupyter-notebook"
-        },
-        "workbench.iconTheme": "vscode-icons"
-      }
+    "name": "{{ cookiecutter.package_name }}",
+    "image": "python:{{ cookiecutter.python_version }}",
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "forwardPorts": [
+        8888
+    ],
+    "remoteEnv": {
+        "PATH": "/root/.local/bin:${containerEnv:PATH}",
+        "LANG": "en_US.UTF-8"
+    },
+    "runArgs": [
+        {%- if cookiecutter.use_gpu -%}
+        "--gpus",
+        "all",
+        "--shm-size=2g",
+        {%- endif -%}
+        "--name",
+        "{{ cookiecutter.package_name }}"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "njpwerner.autodocstring",
+                "tamasfe.even-better-toml",
+                "ms-toolsai.jupyter",
+                "yzhang.markdown-all-in-one",
+                "goessner.mdmath",
+                "DavidAnson.vscode-markdownlint",
+                "ms-python.vscode-pylance",
+                "ms-python.python",
+                "charliermarsh.ruff",
+                "redhat.vscode-yaml"
+            ],
+            "settings": {
+                "[markdown]": {
+                    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+                },
+                "[python]": {
+                    "editor.defaultFormatter": "charliermarsh.ruff",
+                    "editor.rulers": [
+                        72,
+                        76,
+                        80,
+                        88
+                    ]
+                },
+                "[toml]": {
+                    "editor.defaultFormatter": "tamasfe.even-better-toml"
+                },
+                "autoDocstring.docstringFormat": "numpy",
+                "autoDocstring.startOnNewLine": true,
+                "editor.codeActionsOnSave": {
+                    "source.fixAll": true,
+                    "source.fixAll.markdownlint": true,
+                    "source.organizeImports": true
+                },
+                "editor.formatOnSave": true,
+                "editor.formatOnType": true,
+                "editor.renderWhitespace": "all",
+                "explorer.confirmDragAndDrop": false,
+                "files.autoSave": "afterDelay",
+                "files.trimTrailingWhitespace": true,
+                "markdown.math.enabled": true,
+                "markdownlint.ignore": [
+                    "LICENSE"
+                ],
+                "python.analysis.completeFunctionParens": true,
+                "python.analysis.extraPaths": [
+                    "${workspaceFolder}/.venv/Lib/site-packages/",
+                    "/usr/local/lib/python{{cookiecutter.python_version}}/site-packages/",
+                    "${workspaceFolder}/src/"
+                ],
+                "python.analysis.typeCheckingMode": "basic",
+                "python.autoComplete.extraPaths": [
+                    "${workspaceFolder}/.venv/Lib/site-packages/",
+                    "/usr/local/lib/python{{cookiecutter.python_version}}/site-packages/",
+                    "${workspaceFolder}/src/"
+                ],
+                "python.envFile": "${workspaceFolder}/.env",
+                "python.terminal.activateEnvironment": false,
+                "redhat.telemetry.enabled": true,
+                "ruff.path": [
+                    "${workspaceFolder}/.venv/Scripts/ruff.exe",
+                    "/usr/local/bin/ruff"
+                ],
+                "workbench.editorAssociations": {
+                    "*.ipynb": "jupyter-notebook"
+                }
+            }
+        }
     }
-  }
 }

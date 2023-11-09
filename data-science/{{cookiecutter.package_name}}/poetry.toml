@@ -2,5 +2,5 @@
 {%- if cookiecutter.use_docker -%}
 create = false
 {%- else -%}
-create = true
+in-project = true
 {%- endif -%}
