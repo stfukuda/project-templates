@@ -55,7 +55,7 @@
           "editor.wordWrap": "on"
         },
         "[python]": {
-          "editor.defaultFormatter": "ms-python.python",
+          "editor.defaultFormatter": "ms-python.black-formatter",
           "editor.rulers": [
             72,
             76,
