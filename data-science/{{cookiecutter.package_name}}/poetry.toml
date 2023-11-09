@@ -1,6 +1,6 @@
 [virtualenvs]
-{% if cookiecutter.use_docker %}
+{%- if cookiecutter.use_docker -%}
 create = false
-{% else %}
+{%- else -%}
 create = true
-{% endif %}
+{%- endif -%}

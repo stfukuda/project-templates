@@ -1,12 +1,12 @@
-# {{cookiecutter.project_name}}
+# {{ cookiecutter.project_name }}
 
-{{cookiecutter.description}}
+{{ cookiecutter.description }}
 
 ## Dependencies
 
 To use this project, you need to install the following components:
 
-- Python (>={{cookiecutter.python_version}})
+- Python (>={{ cookiecutter.python_version }})
 - Poetry
 - Git (Option)
 - Make (Option)
@@ -55,4 +55,4 @@ Project based on the [cookiecutter data science project template.](https://drive
 
 ## License
 
-[{{cookiecutter.license}} License](LICENSE)
+[{{ cookiecutter.license }} License](LICENSE)

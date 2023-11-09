@@ -1,6 +1,6 @@
 {
-  "name": "{{cookiecutter.package_name}}",
-  "image": "python:{{cookiecutter.python_version}}",
+  "name": "{{ cookiecutter.package_name }}",
+  "image": "python:{{ cookiecutter.python_version }}",
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "forwardPorts": [
@@ -11,13 +11,13 @@
     "LANG": "en_US.UTF-8"
   },
   "runArgs": [
-    {% if cookiecutter.use_gpu %}
+    {%- if cookiecutter.use_gpu -%}
     "--gpus",
     "all",
     "--shm-size=2g",
-    {% endif %}
+    {%- endif -%}
     "--name",
-    "{{cookiecutter.package_name}}"
+    "{{ cookiecutter.package_name }}"
   ],
   "customizations": {
     "vscode": {
@@ -103,12 +103,12 @@
         "markdown.math.enabled": false,
         "python.analysis.completeFunctionParens": true,
         "python.analysis.extraPaths": [
-          "/usr/local/lib/python{{cookiecutter.python_version}}/site-packages/",
+          "/usr/local/lib/python{{ cookiecutter.python_version }}/site-packages/",
           "${workspaceFolder}/src/"
         ],
         "python.analysis.typeCheckingMode": "basic",
         "python.autoComplete.extraPaths": [
-          "/usr/local/lib/python{{cookiecutter.python_version}}/site-packages/",
+          "/usr/local/lib/python{{ cookiecutter.python_version }}/site-packages/",
           "${workspaceFolder}/src/"
         ],
         "python.envFile": "${workspaceFolder}/.env",
