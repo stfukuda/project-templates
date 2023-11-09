@@ -94,6 +94,10 @@
         ],
         "git.confirmSync": false,
         "git.enableCommitSigning": true,
+        "isort.args": [
+          "--profile",
+          "black"
+        ],
         "isort.check": true,
         "isort.importStrategy": "fromEnvironment",
         "isort.path": [
