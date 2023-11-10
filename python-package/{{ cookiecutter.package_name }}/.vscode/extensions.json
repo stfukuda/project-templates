@@ -1,0 +1,20 @@
+{
+    "recommendations": [
+        "njpwerner.autodocstring",
+        "bungcip.better-toml",
+        "ms-python.flake8",
+        "mhutchie.git-graph",
+        "oderwat.indent-rainbow",
+        "ms-python.isort",
+        "MS-CEINTL.vscode-language-pack-ja",
+        "ms-toolsai.jupyter",
+        "yzhang.markdown-all-in-one",
+        "goessner.mdmath",
+        "DavidAnson.vscode-markdownlint",
+        "christian-kohler.path-intellisense",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "richie5um2.vscode-sort-json",
+        "redhat.vscode-yaml"
+    ]
+}
