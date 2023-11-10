@@ -18,10 +18,10 @@ jobs:
       - name: Get Tags
         run: |
           git fetch --prune --unshallow --tags
-      - name: Setup Python {{cookiecutter.python_version}}
+      - name: Setup Python {{ cookiecutter.python_version }}
         uses: actions/setup-python@v4
         with:
-          python-version: "{{cookiecutter.python_version}}"
+          python-version: "{{ cookiecutter.python_version }}"
       - name: Setup Poetry
         run: |
           python3 -m pip install -U pip setuptools wheel
@@ -33,4 +33,4 @@ jobs:
           poetry install --no-root
       - name: Build
         run: |
-          poetry publish --build -u __token__ -p ${{"{{"}} secrets.PYPI_TOKEN {{"}}"}}
+          poetry publish --build -u __token__ -p ${{ "{{" }} secrets.PYPI_TOKEN {{ "}}" }}

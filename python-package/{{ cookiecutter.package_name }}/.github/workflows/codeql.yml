@@ -20,10 +20,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-      - name: Setup Python {{cookiecutter.python_version}}
+      - name: Setup Python {{ cookiecutter.python_version }}
         uses: actions/setup-python@v4
         with:
-          python-version: "{{cookiecutter.python_version}}"
+          python-version: "{{ cookiecutter.python_version }}"
       - name: Setup Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
@@ -35,7 +35,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
-          languages: ${{"{{"}} matrix.language {{"}}"}}
+          languages: ${{ "{{" }} matrix.language {{ "}}" }}
           config-file: ./.github/codeql/codeql-config.yml
           setup-python-dependencies: false
       - name: Autobuild
@@ -43,4 +43,4 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
         with:
-          category: "/language:${{'{{'}} matrix.language {{'}}'}}"
+          category: "/language:${{ '{{' }} matrix.language {{ '}}' }}"

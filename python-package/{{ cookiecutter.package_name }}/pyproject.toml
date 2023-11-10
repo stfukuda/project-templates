@@ -1,9 +1,9 @@
 [tool.poetry]
-name = "{{cookiecutter.package_name}}"
+name = "{{ cookiecutter.package_name }}"
 version = "0.0.0"
-description = "{{cookiecutter.description}}"
-authors = ["{{cookiecutter.author}}"]
-license = "{{cookiecutter.license}}"
+description = "{{ cookiecutter.description }}"
+authors = ["{{ cookiecutter.author }}"]
+license = "{{ cookiecutter.license }}"
 readme = "README.md"
 homepage = "None"
 repository = "None"
@@ -11,7 +11,7 @@ documentation = "None"
 include = ["README.md"]
 
 [tool.poetry.dependencies]
-python = "^{{cookiecutter.python_version}}"
+python = "^{{ cookiecutter.python_version }}"
 
 [tool.poetry.group.dev]
 optional = true
