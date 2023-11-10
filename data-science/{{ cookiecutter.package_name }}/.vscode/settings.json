@@ -61,13 +61,13 @@
     "python.analysis.completeFunctionParens": true,
     "python.analysis.extraPaths": [
         "${workspaceFolder}/.venv/Lib/site-packages/",
-        "/usr/local/lib/python{{cookiecutter.python_version}}/site-packages/",
+        "/usr/local/lib/python{{ cookiecutter.python_version }}/site-packages/",
         "${workspaceFolder}/src/"
     ],
     "python.analysis.typeCheckingMode": "basic",
     "python.autoComplete.extraPaths": [
         "${workspaceFolder}/.venv/Lib/site-packages/",
-        "/usr/local/lib/python{{cookiecutter.python_version}}/site-packages/",
+        "/usr/local/lib/python{{ cookiecutter.python_version }}/site-packages/",
         "${workspaceFolder}/src/"
     ],
     "python.envFile": "${workspaceFolder}/.env",

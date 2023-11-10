@@ -11,9 +11,9 @@ import sys
 
 sys.path.insert(0, os.path.abspath("../../src"))
 
-project = "{{cookiecutter.project_name}}"
-copyright = "{% now 'utc', '%Y' %}, {{cookiecutter.author}}"
-author = "{{cookiecutter.author}}"
+project = "{{ cookiecutter.project_name }}"
+copyright = "{% now 'utc', '%Y' %}, {{ cookiecutter.author }}"
+author = "{{ cookiecutter.author }}"
 version = "0.1.0"
 
 # -- General configuration ---------------------------------------------------

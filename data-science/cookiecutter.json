@@ -1,6 +1,6 @@
 {
     "project_name": "project_name",
-    "package_name": "{{cookiecutter.project_name.lower().replace(' ', '-')}}",
+    "package_name": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
     "author": "Your name <email address>",
     "description": "A short description of this project.",
     "license": [

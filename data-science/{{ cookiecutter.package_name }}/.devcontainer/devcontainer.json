@@ -11,11 +11,11 @@
         "LANG": "en_US.UTF-8"
     },
     "runArgs": [
-        {%- if cookiecutter.use_gpu -%}
+        {% if cookiecutter.use_gpu -%}
         "--gpus",
         "all",
         "--shm-size=2g",
-        {%- endif -%}
+        {% endif -%}
         "--name",
         "{{ cookiecutter.package_name }}"
     ]
