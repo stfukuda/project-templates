@@ -16,9 +16,7 @@ python = "^{{ cookiecutter.python_version }}"
 [tool.poetry.group.dev]
 optional = true
 [tool.poetry.group.dev.dependencies]
-isort = "*"
-black = "*"
-flake8 = "*"
+ruff = "*"
 bandit = {extras = ["toml"], version = "*"}
 pre-commit = "*"
 
@@ -37,12 +35,9 @@ sphinx_rtd_theme = "*"
 
 [tool.poetry-dynamic-versioning]
 enable = true
-[tool.isort]
-profile = "black"
-lines_after_imports = 2
 
-[tool.black]
-target-versions = ["py38", "py39", "py310", "py311"]
+[tool.ruff]
+target-version = "py{{ cookiecutter.python_version.replace('.', '') }}"
 
 [tool.bandit]
 skips = ["B101", "B601"]

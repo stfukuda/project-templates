@@ -13,6 +13,7 @@ apt-get install -y nodejs
 npm i -g npm git-cz
 
 python3 -m pip install -U pip setuptools wheel
-curl -sSL https://install.python-poetry.org | python3 -
-
+python3 -m pip install -U --user pipx
+python3 -m pipx ensurepath
+pipx install poetry
 poetry self add "poetry-dynamic-versioning[plugin]"
