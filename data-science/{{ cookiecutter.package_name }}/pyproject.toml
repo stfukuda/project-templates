@@ -30,8 +30,6 @@ optional = true
 [tool.poetry.group.ide.dependencies]
 jupyterlab = "*"
 ipywidgets = "*"
-jupyterlab_flake8 = "*"
-jupyterlab_code_formatter = "*"
 
 [tool.poetry-dynamic-versioning]
 enable = true
