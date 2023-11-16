@@ -18,7 +18,7 @@ setup:
 	@if [ -d ./.git ]; then \
 		echo "Setup is already done."; \
 	else \
-		if command -v git &> /dev/null; \
+		if command -v git &> /dev/null; then \
 			git init; \
 			git commit --allow-empty -m "initial commit"; \
 			git checkout -b develop; \
@@ -33,7 +33,7 @@ setup:
 			git commit -m "update pre-commit hooks revision or tag"; \
 		else \
 			poetry install --with dev,test,docs; \
-		fi \
+		fi; \
 		echo "Setup is complete."; \
 	fi
 
