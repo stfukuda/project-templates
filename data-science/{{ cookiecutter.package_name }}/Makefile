@@ -28,8 +28,8 @@ setup:
 			poetry install --with dev,docs,ide; \
 			git add poetry.lock; \
 			git commit -m "add poetry.lock"; \
-			pre-commit install; \
-			pre-commit autoupdate; \
+			poetry run pre-commit install; \
+			poetry run pre-commit autoupdate; \
 			git add .pre-commit-config.yaml; \
 			git commit -m "update pre-commit hooks revision or tag"; \
 		else \
@@ -42,20 +42,20 @@ setup:
 update:
 	@poetry update --with dev,docs,ide
 	@poetry export -f requirements.txt --output requirements.txt
-	@pre-commit autoupdate
+	@poetry run pre-commit autoupdate
 
 .PHONY: format
 format:
-	-@ruff ./src
+	-@poetry run ruff ./src
 
 .PHONY: lint
 lint:
-	-@ruff check ./src --fix
-	-@bandit -c pyproject.toml -r ./src
+	-@poetry run ruff check ./src --fix
+	-@poetry run bandit -c pyproject.toml -r ./src
 
 .PHONY: docs
 docs:
-	@sphinx-build -b html ./docs/source ./docs
+	@poetry run sphinx-build -b html ./docs/source ./docs
 
 .PHONY: build
 build:
@@ -66,7 +66,7 @@ build:
 
 .PHONY: lab
 lab:
-	@jupyter lab --allow-root --ip="*" --poert=8888 --no-browser
+	@poetry run jupyter lab --allow-root --ip="*" --poert=8888 --no-browser
 
 .PHONY: clean
 clean:
