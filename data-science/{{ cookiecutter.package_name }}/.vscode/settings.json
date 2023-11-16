@@ -44,6 +44,11 @@
     },
     "autoDocstring.docstringFormat": "numpy",
     "autoDocstring.startOnNewLine": true,
+    "bandit.args": [
+        "-c",
+        "pyproject.toml"
+    ],
+    "bandit.importStrategy": "fromEnvironment",
     "editor.codeActionsOnSave": {
         "source.fixAll": true,
         "source.fixAll.markdownlint": true,
