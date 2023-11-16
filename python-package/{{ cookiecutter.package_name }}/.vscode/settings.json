@@ -15,7 +15,8 @@
         },
         "editor.unicodeHighlight.ambiguousCharacters": false,
         "editor.unicodeHighlight.invisibleCharacters": false,
-        "editor.wordWrap": "on"
+        "editor.wordWrap": "on",
+        "files.trimTrailingWhitespace": false
     },
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff",
