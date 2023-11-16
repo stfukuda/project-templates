@@ -3,7 +3,6 @@
         "njpwerner.autodocstring",
         "nwgh.bandit",
         "tamasfe.even-better-toml",
-        "ms-toolsai.jupyter",
         "DavidAnson.vscode-markdownlint",
         "ms-python.python",
         "charliermarsh.ruff",

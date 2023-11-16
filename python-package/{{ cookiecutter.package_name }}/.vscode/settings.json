@@ -86,8 +86,5 @@
     "ruff.path": [
         "${workspaceFolder}/.venv/Scripts/ruff.exe",
         "/usr/local/bin/ruff"
-    ],
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
-    }
+    ]
 }
