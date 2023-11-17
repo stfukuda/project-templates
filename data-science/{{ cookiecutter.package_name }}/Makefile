@@ -46,7 +46,7 @@ update:
 
 .PHONY: format
 format:
-	-@poetry run ruff ./src
+	-@poetry run ruff format ./src
 
 .PHONY: lint
 lint:
