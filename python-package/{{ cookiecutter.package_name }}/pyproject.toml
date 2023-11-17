@@ -17,7 +17,7 @@ python = "^{{ cookiecutter.python_version }}"
 optional = true
 [tool.poetry.group.dev.dependencies]
 ruff = "*"
-bandit = {extras = ["toml"], version = "*"}
+bandit = { extras = ["toml"], version = "*" }
 pre-commit = "*"
 
 [tool.poetry.group.test]
