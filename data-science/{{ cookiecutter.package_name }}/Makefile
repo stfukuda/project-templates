@@ -66,7 +66,11 @@ build:
 
 .PHONY: lab
 lab:
+	{% if cookiecutter.use_docker -%}
 	@poetry run jupyter lab --allow-root --ip="*" --poert=8888 --no-browser
+	{%- else -%}
+	@poetry run jupyter lab
+	{%- endif %}
 
 .PHONY: clean
 clean:
