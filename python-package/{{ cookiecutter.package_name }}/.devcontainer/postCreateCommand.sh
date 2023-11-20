@@ -23,4 +23,5 @@ python3 -m pip install -U pip setuptools wheel
 python3 -m pip install -U --user pipx
 python3 -m pipx ensurepath
 pipx install poetry
+poetry self add poetry-plugin-export
 poetry self add "poetry-dynamic-versioning[plugin]"
