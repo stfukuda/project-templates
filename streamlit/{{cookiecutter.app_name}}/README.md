@@ -1,6 +1,6 @@
-# {{cookiecutter.project_name}}
+# {{ cookiecutter.project_name }}
 
-{{cookiecutter.description}}
+{{ cookiecutter.description }}
 
 ## Dependencies
 
@@ -11,4 +11,4 @@ Requires:
 
 ## License
 
-[{{cookiecutter.license}} License](LICENSE)
+[{{ cookiecutter.license }} License](LICENSE)

@@ -1,6 +1,6 @@
 {
     "project_name": "project_name",
-    "app_name": "{{cookiecutter.project_name.lower().replace(' ', '-')}}",
+    "app_name": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
     "author": "Your name <email address>",
     "description": "A short description of this project.",
     "license": [
@@ -19,6 +19,11 @@
         "3.8",
         "3.9",
         "3.10",
-        "3.11"
+        "3.11",
+        "3.12"
+    ],
+    "use_docker": [
+        false,
+        true
     ]
 }

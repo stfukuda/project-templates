@@ -20,7 +20,7 @@
             "console": "integratedTerminal",
             "args": [
                 "run",
-                "src/{{cookiecutter.app_name}}/app.py",
+                "src/{{ cookiecutter.app_name }}/app.py",
                 "--server.port",
                 "8501"
             ],

@@ -1,9 +1,9 @@
 [tool.poetry]
-name = "{{cookiecutter.app_name}}"
+name = "{{ cookiecutter.app_name }}"
 version = "0.0.0"
-description = "{{cookiecutter.description}}"
-authors = ["{{cookiecutter.author}}"]
-license = "{{cookiecutter.license}}"
+description = "{{ cookiecutter.description }}"
+authors = ["{{ cookiecutter.author }}"]
+license = "{{ cookiecutter.license }}"
 readme = "README.md"
 homepage = "None"
 repository = "None"
@@ -11,16 +11,14 @@ documentation = "None"
 include = ["README.md"]
 
 [tool.poetry.dependencies]
-python = "^{{cookiecutter.python_version}}"
+python = "^{{ cookiecutter.python_version }}"
 streamlit = "*"
 
 [tool.poetry.group.dev]
 optional = true
 [tool.poetry.group.dev.dependencies]
-isort = "*"
-black = "*"
-flake8 = "*"
-bandit = {extras = ["toml"], version = "*"}
+ruff = "*"
+bandit = { extras = ["toml"], version = "*" }
 pre-commit = "*"
 
 [tool.poetry.group.test]
@@ -39,16 +37,12 @@ sphinx_rtd_theme = "*"
 [tool.poetry-dynamic-versioning]
 enable = true
 
-[tool.isort]
-profile = "black"
-lines_after_imports = 2
-
-[tool.black]
-target-versions = ["py38", "py39", "py310", "py311"]
+[tool.ruff]
+target-version = "py{{ cookiecutter.python_version.replace('.', '') }}"
 
 [tool.bandit]
 skips = ["B101", "B601"]
 
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
 build-backend = "poetry_dynamic_versioning.backend"

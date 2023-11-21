@@ -2,7 +2,7 @@ import streamlit as st
 
 
 def main():
-    st.sidebar.title("{{cookiecutter.app_name}}")
+    st.sidebar.title("{{ cookiecutter.app_name }}")
     st.sidebar.header("Menu")
 
     select_id = st.sidebar.selectbox(
