@@ -48,7 +48,7 @@ update:
 	@poetry run pre-commit autoupdate
 
 .PHONY: check
-format:
+check:
 	-@poetry run ruff format ./src ./tests
 	-@poetry run ruff check ./src ./tests --fix
 	-@poetry run bandit -c pyproject.toml -r ./src ./tests
