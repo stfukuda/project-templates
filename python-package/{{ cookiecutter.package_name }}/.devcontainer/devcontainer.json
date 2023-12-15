@@ -10,5 +10,6 @@
 		"--name",
 		"{{ cookiecutter.package_name }}"
 	],
-	"postCreateCommand": "./.devcontainer/postCreateCommand.sh"
+	"postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+	"shutdownAction":"stopContainer"
 }
