@@ -43,7 +43,8 @@ setup:
 .PHONY: update
 update:
 	@poetry update --with dev,docs,ide
-	@poetry export -f requirements.txt --output requirements.txt
+	@poetry export -f requirements.txt --output requirements.txt --without-hashes --without-urls
+	@poetry export -f requirements.txt --output requirements-dev.txt --without-hashes --without-urls --with dev,docs,ide
 	@poetry run pre-commit autoupdate
 
 .PHONY: format
