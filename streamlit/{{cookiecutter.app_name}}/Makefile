@@ -35,6 +35,8 @@ setup:
 			git commit -m "update pre-commit hooks revision or tag"; \
 		else \
 			poetry install --with dev,test,docs; \
+			poetry export -f requirements.txt --output requirements.txt --without-hashes --without-urls; \
+			poetry export -f requirements.txt --output requirements-dev.txt --without-hashes --without-urls --with dev,test,docs; \
 		fi; \
 		echo "Setup is complete."; \
 	fi
