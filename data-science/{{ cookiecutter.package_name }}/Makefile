@@ -49,7 +49,7 @@ update:
 	@poetry run pre-commit autoupdate
 
 .PHONY: check
-format:
+check:
 	-@poetry run ruff format ./src
 	-@poetry run ruff check ./src --fix
 	-@poetry run bandit -c pyproject.toml -r ./src
