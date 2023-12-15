@@ -26,7 +26,9 @@ setup:
 			git add .; \
 			git commit -m "add template folder"; \
 			poetry install --with dev,docs,ide; \
-			git add poetry.lock; \
+			poetry export -f requirements.txt --output requirements.txt --without-hashes --without-urls; \
+			poetry export -f requirements.txt --output requirements-dev.txt --without-hashes --without-urls --with dev,docs,ide; \
+			git add poetry.lock requirements.txt requirements-dev.txt; \
 			git commit -m "add poetry.lock"; \
 			poetry run pre-commit install; \
 			poetry run pre-commit autoupdate; \
