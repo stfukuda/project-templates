@@ -47,7 +47,7 @@ update:
 
 .PHONY: check
 format:
-	-@poetry run ruff format ./src, ./tests
+	-@poetry run ruff format ./src ./tests
 	-@poetry run ruff check ./src ./tests --fix
 	-@poetry run bandit -c pyproject.toml -r ./src ./tests
 
