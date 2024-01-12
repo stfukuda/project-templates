@@ -72,6 +72,13 @@ repos:
           # - "--pattern" # Protect branches that match a supplied regex. May be specified multiple times.
           # - "release/.*" # Branch pattern.
       - id: pretty-format-json # Checks that all your JSON files are pretty. "Pretty" here means that keys are sorted and indented. You can configure this with the following commandline options:
+        exclude: |
+          (?x)^(
+            .devcontainer/devcontainer.json|
+            .vscode/extensions.json|
+            .vscode/launch.json|
+            .vscode/settings.json
+          )$
         args:
           - "--autofix" # Automatically format json files.
       #     - "--indent" # Control the indentation (either a number for a number of spaces or a string of whitespace). Defaults to 2 spaces.
