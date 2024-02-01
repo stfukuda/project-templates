@@ -1,0 +1,18 @@
+{
+    "name": "{{ cookiecutter.app_name }}",
+    "image": "python:{{ cookiecutter.python_version }}",
+    "forwardPorts": [
+        8501
+    ],
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "remoteEnv": {
+        "PATH": "/root/.local/bin:${containerEnv:PATH}"
+    },
+    "runArgs": [
+        "--name",
+        "{{ cookiecutter.app_name }}"
+    ],
+    "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+    "shutdownAction": "stopContainer"
+}

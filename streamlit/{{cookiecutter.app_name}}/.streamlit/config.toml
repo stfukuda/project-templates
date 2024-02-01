@@ -1,0 +1,10 @@
+# For more infomation to visit: https://docs.streamlit.io/library/advanced-features/configuration
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "viewer"  # auto, developer, viewer, minimal
+
+[theme]
+base = "dark"
+
