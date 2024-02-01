@@ -1,0 +1,15 @@
+{
+    "name": "project-templates",
+    "image": "ubuntu:latest",
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "remoteEnv": {
+        "PATH": "/root/.local/bin:${containerEnv:PATH}"
+    },
+    "runArgs": [
+        "--name",
+        "project-templates"
+    ],
+    "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+    "shutdownAction": "stopContainer"
+}

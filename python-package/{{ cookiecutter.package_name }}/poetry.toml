@@ -1,0 +1,6 @@
+[virtualenvs]
+{% if cookiecutter.use_docker -%}
+create = false
+{% else -%}
+in-project = true
+{% endif -%}
