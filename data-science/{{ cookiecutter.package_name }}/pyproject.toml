@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "{{ cookiecutter.package_name }}"
+version = "0.0.0"
+description = "{{ cookiecutter.description }}"
+authors = ["{{ cookiecutter.author }}"]
+license = "{{ cookiecutter.license }}"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^{{ cookiecutter.python_version }}"
+mlflow = "*"
+hydra-core = "*"
+python-dotenv = "*"
+
+[tool.poetry.group.dev]
+optional = true
+[tool.poetry.group.dev.dependencies]
+ruff = "*"
+bandit = { extras = ["toml"], version = "*" }
+pre-commit = "*"
+
+[tool.poetry.group.docs]
+optional = true
+[tool.poetry.group.docs.dependencies]
+sphinx = "*"
+sphinx_rtd_theme = "*"
+
+[tool.poetry.group.ide]
+optional = true
+[tool.poetry.group.ide.dependencies]
+jupyterlab = "*"
+ipywidgets = "*"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+
+[tool.ruff]
+extend-include = ["*.ipynb"]
+target-version = "py{{ cookiecutter.python_version.replace('.', '') }}"
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"

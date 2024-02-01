@@ -1,0 +1,3 @@
+# @package _group_
+store: sqlite:///${hydra:runtime.cwd}/logs/mlflow.db
+artifact: models

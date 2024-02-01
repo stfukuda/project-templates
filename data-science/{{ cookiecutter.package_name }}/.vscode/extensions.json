@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "njpwerner.autodocstring",
+        "tamasfe.even-better-toml",
+        "ms-toolsai.jupyter",
+        "DavidAnson.vscode-markdownlint",
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "redhat.vscode-yaml"
+    ]
+}
